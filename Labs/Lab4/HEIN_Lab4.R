@@ -70,4 +70,10 @@ plot(timeStep4,Abundance)
 
 # lab step 8a: read data files into R
 setwd ("EBIO4420/CompBioLabsandHomework/Labs/Lab4") #set working directory to lab 4
-
+# lab step 8b: convert columns 2-8 to numerics
+# i) conversion using read.csv option (there's probably a better way to do this)
+CO2Data <- read.csv ("CO2_data_cut_paste.csv",colClasses = c ("Total" = "numeric", "Gas" = "numeric", "Liquids" = "numeric", "Solids" = "numeric", "CementProduction" = "numeric", "GasFlaring" = "numeric", "PerCapita" = "numeric"))
+# ii) conversion using "for" loop
+for (ii in 2:8(CO2Data)) {
+  CO2Data2 <- as.numeric(CO2Data)
+}
