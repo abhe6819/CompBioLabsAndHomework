@@ -12,7 +12,7 @@ gumPacks <- 2       # packs of gum per week
 
 #calculations for 8 weeks
 for (week in seq(1,8)) {
-  funds <- initialMoney + week * (gumCost * gumPacks)
+  funds <- initialMoney + week * (allowance - gumPacks * gumCost)
   print (funds)
 }
 
@@ -20,12 +20,12 @@ for (week in seq(1,8)) {
 
 #parameters
 initialPop <- 2000 #initial population size
-decayRate <- 0.05  #population decay per year
+decayRate <- 0.05  #population decay rate per year
 
 #calculations
 for (year in seq(1,7)) {
-  population <- initialPop - (initialPop * (decayRate * year))
-  print (population)
+ population <- initialPop * ((1 - decayRate)^year)
+ print (population)
 }
 
 # lab step 4: modeling population with discrete-time logistic growth equation
@@ -64,6 +64,10 @@ for (i in 3:20) {
 }
 
 # lab step 7: redo step 4 and store data (abundance is already stored as a vector)
+#see step 4 for parameters and calculations
 timeStep4 <- seq(1,12)
 plot(timeStep4,Abundance)
+
+# lab step 8a: read data files into R
+setwd ("EBIO4420/CompBioLabsandHomework/Labs/Lab4") #set working directory to lab 4
 
