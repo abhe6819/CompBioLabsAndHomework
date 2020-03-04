@@ -72,3 +72,18 @@ write.csv(x = myResults, file = "PredPreyResults.csv")
 
 # lab part III
 initPreyVec <- seq(from = 10, to = 100, by = 10) # initial population vectors
+# prey population over time
+preyPop <- rep (0,totalGenerations)
+preyPop[1] <- initPreyVec
+# pred population over time
+predPop <- rep (0,totalGenerations)
+predPop[1] <- initPred
+lapply(initPreyVec, for (ii in 2:totalGenerations) {
+  preyPop[ii] <- preyPop[ii-1] + (r * preyPop[ii-1]) - (a * preyPop[ii-1] * predPop[ii-1])
+  predPop[ii] <- predPop[ii-1] + (k * a * preyPop[ii-1] * predPop[ii-1]) - (m * predPop[ii-1])
+  if (preyPop[ii] < 0) {
+    preyPop[ii] <- 0
+  }
+})
+
+
