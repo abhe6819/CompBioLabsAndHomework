@@ -38,7 +38,7 @@ growthRate <- 0.8         #intrinsic growth rate of population: r
 
 #calculation
 for (time in seq(2,12)) {
-   Abundance[time] <- Abundance[time-1] + (growthRate * Abundance[time-1] * (carryingCapacity - Abundance[time-1])/K)
+   Abundance[time] <- Abundance[time-1] + (growthRate * Abundance[time-1] * (carryingCapacity - Abundance[time-1])/carryingCapacity)
    print (Abundance[time]) 
 }
 
