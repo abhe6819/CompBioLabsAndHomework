@@ -19,11 +19,14 @@ DensityCompressed2 <- data.frame (Binomial = TreeSpecies,
                                   Family = rep("", NumSpecies),
                                   Density = rep(0, NumSpecies),
                                   stringsAsFactors = F)
-for (ii in 1:nrow(DensityNoNA)) {
+#loop to fill data frame
+for (ii in 1:NumSpecies) {
   Species <- TreeSpecies[ii]
-  rows <- which(DensityNoNA$BBinomial == Species)
-  DensityCompressed2$Density[ii] <- mean(DensityNoNA$Density[TreeSpecies[ii]])
-  DensityCompressed2$Family[ii] <- DensityNoNA$Family[TreeSpecies[ii]]
-} 
+  rows <- which(DensityNoNA$Binomial == Species)
+  DensityCompressed2$Density[ii] <- mean(DensityNoNA$Density[rows])
+  DensityCompressed2$Family[ii] <- DensityNoNA$Family[rows[1]]
+}
+#check that the two methods produce the same result
+all(DensityCompressed == DensityCompressed2)
 
 # lab step 6:
