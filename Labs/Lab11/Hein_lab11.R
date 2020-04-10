@@ -29,4 +29,14 @@ for (ii in 1:NumSpecies) {
 #check that the two methods produce the same result
 all(DensityCompressed == DensityCompressed2)
 
-# lab step 6:
+# lab step 6:contrasting most and least dense families
+# lab step 6a: adjust data from step to only include family and an avg. density
+FamilyDensityCompressed <- summarise(group_by(DensityCompressed,Family), MeanDensity = mean(MeanDensity))
+# lab step 6b: sort by mean density
+MeanstortedFamilyDensity <- arrange(FamilyDensityCompressed, MeanDensity)
+# lab step 6c: eight highest densities
+tail(MeanstortedFamilyDensity, n=8)
+#eight lowest densities
+head(MeanstortedFamilyDensity, n=8)
+
+#lab step 7: plotting data
