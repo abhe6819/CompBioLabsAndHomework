@@ -40,3 +40,4 @@ tail(MeanstortedFamilyDensity, n=8)
 head(MeanstortedFamilyDensity, n=8)
 
 #lab step 7: plotting data
+library(ggplot2) #access ggplot2
