@@ -35,9 +35,13 @@ FamilyDensityCompressed <- summarise(group_by(DensityCompressed,Family), MeanDen
 # lab step 6b: sort by mean density
 MeanstortedFamilyDensity <- arrange(FamilyDensityCompressed, MeanDensity)
 # lab step 6c: eight highest densities
-tail(MeanstortedFamilyDensity, n=8)
+TopEight <- tail(MeanstortedFamilyDensity, n=8)
 #eight lowest densities
-head(MeanstortedFamilyDensity, n=8)
+BottomEight <- head(MeanstortedFamilyDensity, n=8)
 
 #lab step 7: plotting data
 library(ggplot2) #access ggplot2
+TreeFamilies <- sort(unique (DensityNoNA$Binomial))
+#Subset data
+DensityCompressed %>% subset(DensityCompressed$Family, Family) %>% ggplot(DensityCompressed) +
+  geom_boxplot(aes(y=MeanDensity, x=Family))
