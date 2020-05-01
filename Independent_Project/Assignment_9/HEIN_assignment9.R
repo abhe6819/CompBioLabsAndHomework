@@ -29,7 +29,7 @@ dev.off()
 
 # make data frame of national cases per capita
 # data frame of national populations in millions
-CountryPopulation <- data.frame(1392.73000,326.68750, 66.46034, 60.42176, 66.97711, 82.90578, 46.79654, 81.80027) 
+CountryPopulation <- data.frame(1392.73000,326.68750, 66.46034, 60.42176, 66.97711, 82.90578, cy46.79654, 81.80027) 
 colnames(CountryPopulation) <- c("China", "US", "United_Kingdom", "Italy", "France", "Germany", "Spain", "Iran")
 rownames(CountryPopulation) <- ("population(millions)")
 # normalize cases per country by population
